@@ -4,6 +4,8 @@ metadata:
   name: sampleapp1-82210889
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: sampleapp1-82210889
