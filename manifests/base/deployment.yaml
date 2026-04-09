@@ -17,3 +17,13 @@ spec:
           image: cepgbaseacr.azurecr.io/sampleapp1-82210889:latest
           ports:
             - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: sampleapp1-82210889-config
+          volumeMounts:
+            - name: app-storage
+              mountPath: /data
+      volumes:
+        - name: app-storage
+          persistentVolumeClaim:
+            claimName: sampleapp1-pvc        
