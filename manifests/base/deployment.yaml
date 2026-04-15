@@ -13,10 +13,10 @@ spec:
     metadata:
       labels:
         app: sampleapp1-82210889
-    spec:
+    spec: 
       containers:
         - name: sampleapp1-82210889
-          image: lamon777/sampleapp1-82210889:latest
+          image: acrcloudbizcecomm.azurecr.io/sampleapp1-82210889:latest
           ports:
             - containerPort: 8080
           envFrom:
