@@ -1,17 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: cloud-sample-ingress
+  name: sampleapp1-82210889-ingress
+  namespace: 82210889
 spec:
-  ingressClassName: ingress-internal
+  ingressClassName: webapprouting.kubernetes.azure.com
   rules:
-  - host: cloud-sample-prod.cepg-aa.kubepia.net
+  - host: cloud-sample.82210889.ce.kubepia.net
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
           service:
-            name: cloud-sample
+            name: sampleapp1-82210889
             port:
-              number: 8080
-        pathType: Prefix
+              number: 80
