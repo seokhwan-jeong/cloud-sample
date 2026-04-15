@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: sampleapp1-82210889
-  namespace: 82210889
 spec:
   replicas: 1
   strategy:
