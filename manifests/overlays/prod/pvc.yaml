@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: sampleapp1-82210889-pvc
+  name: cloud-sample-pvc
 spec:
   storageClassName: default
   accessModes:
