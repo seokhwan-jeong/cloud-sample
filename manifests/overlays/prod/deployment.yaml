@@ -1,31 +1,39 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sampleapp1-82210889
+  name: cloud-sample
 spec:
   replicas: 1
-  strategy:
-    type: Recreate
   selector:
     matchLabels:
-      app: sampleapp1-82210889
+      app: cloud-sample
   template:
     metadata:
       labels:
-        app: sampleapp1-82210889
-    spec: 
+        app: cloud-sample
+    spec:
       containers:
-        - name: sampleapp1-82210889
-          image: acrcloudbizcecomm.azurecr.io/sampleapp1-82210889:latest
+        - name: cloud-sample
+          image: acrcloudbizcecomm.azurecr.io/82210889/cloud-sample
           ports:
             - containerPort: 8080
-          envFrom:
-            - configMapRef:
-                name: sampleapp1-82210889-config
+
+          # ConfigMap(application.yml) 마운트
           volumeMounts:
-            - name: app-storage
-              mountPath: /data
+            - name: config-volume
+              mountPath: /config/application.yml
+              subPath: application.yml
+
+            # PVC 마운트
+            - name: pvc-volume
+              mountPath: /mnt/cloud-sample
+
+      #  볼륨 정의
       volumes:
-        - name: app-storage
+        - name: config-volume
+          configMap:
+            name: cloud-sample-config
+
+        - name: pvc-volume
           persistentVolumeClaim:
-            claimName: sampleapp1-82210889-pvc        
+            claimName: cloud-sample-pvc
