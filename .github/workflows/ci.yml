@@ -5,6 +5,10 @@ on:
     branches:
       - dev
 
+env:
+  IMAGE_NAME: 82210889/cloud-sample
+  TAG: latest
+
 jobs:
   build:
     runs-on: ubuntu-latest
