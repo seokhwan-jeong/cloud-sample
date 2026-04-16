@@ -16,7 +16,7 @@ spec:
     spec: 
       containers:
         - name: sampleapp1-82210889
-          image: acrcloudbizcecomm.azurecr.io/sampleapp1-82210889:latest
+          image: acrcloudbizcecomm.azurecr.io/82210889/cloud-sample:latest
           ports:
             - containerPort: 8080
           envFrom:
