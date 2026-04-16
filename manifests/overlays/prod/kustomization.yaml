@@ -8,3 +8,6 @@ resources:
 - ingress.yaml
 - configmap.yaml
 - pvc.yaml
+images:
+- name: acrcloudbizcecomm.azurecr.io/82210889/cloud-sample
+  newTag: "202604160717"
